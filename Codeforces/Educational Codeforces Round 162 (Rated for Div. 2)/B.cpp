@@ -7,32 +7,31 @@ const int INF = 1e9;
 void solve(){
     int n,k;
     cin >> n >> k;
-    if(k > 1 || n == 1){
-        cout << "Yes" << endl;
-        return;
-    }
-    bool check = true;
-    vector<int> arr(n);
+    double sum = 0;
     for(int i=0;i<n;i++){
-        cin >> arr[i];
+        ll a;
+        cin >> a;
+        sum += a;
     }
-    for(int i=1;i<n;i++){
-        if(arr[i] < arr[i-1]){
-            check = false;
-            break;
-        }
+    double maxi = INT_MIN;
+    for(int i=0;i<n;i++){
+        double x;
+        cin >> x;
+        maxi = max(maxi,abs(x));
     }
-    if(check){
-        cout << "Yes" << endl;
-    }else{
+
+    double need = sum/k;
+    if(need > maxi){
         cout << "NO" << endl;
+    }else{
+        cout << "YES" << endl;
     }
 }
  
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t;
+    ll t;
     cin >> t;
     while(t--){
         solve();

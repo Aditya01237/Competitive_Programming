@@ -5,34 +5,38 @@ int mod = 1e9+7;
 const int INF = 1e9;
 
 void solve(){
-    int n,k;
-    cin >> n >> k;
-    if(k > 1 || n == 1){
-        cout << "Yes" << endl;
-        return;
-    }
-    bool check = true;
+    int n;
+    cin >> n;
     vector<int> arr(n);
+    int count = 0;
     for(int i=0;i<n;i++){
         cin >> arr[i];
     }
-    for(int i=1;i<n;i++){
-        if(arr[i] < arr[i-1]){
-            check = false;
+    int first=0;
+    int last = n-1;
+    while(first < n){
+        if(arr[first] == 1){
             break;
         }
+        first++;
     }
-    if(check){
-        cout << "Yes" << endl;
-    }else{
-        cout << "NO" << endl;
+    while(last < n){
+        if(arr[last] == 1){
+            break;
+        }
+        last--;
     }
+    while(first <= last){
+        if(arr[first] == 0)count++;
+        first++;
+    }
+    cout << count << endl;
 }
  
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t;
+    ll t;
     cin >> t;
     while(t--){
         solve();
