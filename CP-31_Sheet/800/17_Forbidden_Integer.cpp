@@ -7,28 +7,25 @@ const int INF = 1e9;
 void solve(){
     int n,k,x;
     cin >> n >> k >> x;
-    vector<int> arr;
-    while(k >= 1){
-        if(k == x){
-            k--;
-        }
-        else if(n >= k){
-            arr.push_back(k);
-            n -= k;
-        }
-        else{
-            k--;
-        }
-    }
-    if(n != 0){
-        cout << "NO" << endl;
-    }else{
+    if(x != 1){
         cout << "YES" << endl;
-        cout << arr.size() << endl;
-        for(int i=0;i<arr.size();i++){
-            cout << arr[i] << " ";
+        cout << n << endl;
+        for(int i=1;i<=n;i++){
+            cout << 1 << " ";
         }
         cout << endl;
+    }
+    else{
+        if(n%2 == 0){
+            cout << "YES" << endl;
+            cout << n/2 << endl;
+            for(int i=1;i<=n/2;i++){
+                cout << 2 << " ";
+            }
+            cout << endl;
+        }else{
+            
+        }
     }
 }
 
